@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css/sign_up.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<script src="https://kit.fontawesome.com/32eaf8125a.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<section class="login py-1 bg-light">
+   <div class="container">
+     <div class="row g-0">
+        <div class="col-lg-5">
+            <img src="/images/new.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-7 text-center py-3">
+              <h1 class="animate__animated animate__bounce"> Sign Up </h1>
+
+            <form action="/users/create" method="POST">
+                <div class="form-row py-3 pt-5">
+                    <div class="offset-1 col-lg-10">
+                        <input type="text" name="name" class="inp px-3" placeholder="Your Name" required>
+                    </div>
+                </div>
+                <div class="form-row py-3">
+                    <div class="offset-1 col-lg-10">    
+                        <input type="email" name="email" class="inp px-3" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-row py-3">
+                    <div class="offset-1 col-lg-10">  
+                        <input type="password" name="password" class="inp px-3" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="form-row py-3 ">
+                    <div class="offset-1 col-lg-10">  
+                        <input type="password" name="confirm_password" class="inp px-3" placeholder="Confirm Password" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="offset-1 col-lg-10">
+                        <!-- <input type="submit" value="Sign In"> -->
+                        <button class="btn1"> Sign Up</button>
+                    </div>
+                </div>  
+            </form>
+            <p > <h5> OR </h5> </p>
+            <span> <i class="fa-brands fa-google"></i> 
+              <a href="/users/auth/google"> SignUp with Google </a>
+            </span>
+        </div>
+      </div>  
+    </div>
+  </section>   
