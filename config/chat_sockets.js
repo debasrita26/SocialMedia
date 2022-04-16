@@ -1,24 +1,35 @@
-module.exports.chatSockets= function(socketServer){
-    let io=require('socket.io')(socketServer);
-    
-        io.sockets.on('connection',function(socket){
-            console.log('new connection received', socket.id);
+const Chat = require("../models/chat");
+const Chatroom = require("../models/chatroom");
+var room;
+module.exports.chatSockets = async function (socketServer) {
+  let io = require("socket.io")(socketServer);
 
-        socket.on('disconnect', function(){
-            console.log('socket disconnected');
-        });
+  io.sockets.on("connection", function (socket) {
+    console.log("New connection received ", socket.id);
 
-        socket.on('join_room',function(data){
-            console.log('joining request received');
-
-            socket.join(data.chatroom);
-
-            io.in(data.chatroom).emit('user_joined',data);
-        });
-
-
-        socket.on('send_message',function(data){
-            io.in(data.chatroom).emit('receive_message',data);
-        });
+    socket.on("disconnect", function () {
+      console.log("Connection Disconnected---------->");
     });
-}
+
+    socket.on("join_room", async function (data) {
+      console.log("joining request received", data);
+
+      room = await Chatroom.findById(data.chatroom);
+      socket.join(data.chatroom);
+      io.in(data.chatroom).emit("user_joined", data);
+    });
+
+    socket.on("send_message", async function (data) {
+      let newMessage = await Chat.create({
+        user: data.user_id,
+        message: data.message,
+      });
+
+      if (room) {
+        room.messages.push(newMessage);
+        room.save();
+      }
+      io.in(data.chatroom).emit("receive_message", data);
+    });
+  });
+};

@@ -3,9 +3,24 @@ const ejs=require('ejs');
 const path=require('path');
 const env=require('./environment');
 
-let transporter = nodemailer.createTransport(env.smtp);
+let transporter = nodemailer.createTransport({
+    smtp: {
+        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth:{
+            user: process.env.USERNAME,
+            pass: process.env.PASSWORD
+        },
+        tls:{
+            rejectUnauthorized: false
+        }
+    }
+});
 
-let renderTemplate=(data,relativePath )=> {
+let renderTemplate=function(data,relativePath )
+{
     let mailHTML;
     ejs.renderFile(
         path.join(__dirname,'../views/mailers',relativePath),
@@ -15,7 +30,7 @@ let renderTemplate=(data,relativePath )=> {
 
             mailHTML=template;
         }
-    )
+    );
     return mailHTML;
 }
 

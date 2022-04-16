@@ -1,6 +1,7 @@
  const Post=require('../../../models/post');
  const Comment=require('../../../models/comment');
 
+//when we want to list out something as an action name
 module.exports.index=async function(req,res){
 
     let posts =await  Post.find({})
@@ -33,7 +34,7 @@ module.exports.destroy =async function(req, res){
             });
         }else{
             return res.json(401,{
-                message: "You cannot delete thi post"
+                message: "You cannot delete this post"
             });
         }
     }catch(err){

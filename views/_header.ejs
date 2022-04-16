@@ -3,23 +3,34 @@
         <div class="mini-logo">
             <p>
                 <a href='/'>
-                    codeial
+                    <h3>Sociobuzz</h3>
                 </a>
             </p>
         </div>
-    
+        
         <div class="auth-links">
             <ul>
                 <% if (locals.user){ %>
+                    <li>
+                        <div class="text">
+                            <a href="/messages/chats"><i class="far fa-comments" aria-hidden="true"></i></a>
+                        </div>
+                    </li>
                 <li>
-                    <a href="/users/profile"><%= user.name %></a>
+                    <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                </li>
+                <li>
+                    <a href=""></a>
                 </li>
                 <li>
                     <a href="/users/sign-out">Sign Out</a>
                 </li>
                 <% }else{ %>
                 <li>
-                    <a href="/users/sign-in">Sign In</a>
+                    <a href="/users/about">About</a>
+                </li>
+                <li>
+                    <a href="/users/sign-in">Login</a>
                 </li>
                 <li>
                     <a href="/users/sign-up">Sign Up</a>

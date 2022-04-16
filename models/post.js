@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+const addedDate=new Date();
+const time=addedDate.toString();
 
 const postSchema = new mongoose.Schema({
     content: {
@@ -17,13 +18,17 @@ const postSchema = new mongoose.Schema({
             type:  mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
         }
-    ],
+    ], 
     likes:[
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Like'
         }
-    ]
+    ],
+    time:{
+        type: Date,
+        default: () => new Date()
+    }
 },{
     timestamps: true
 });

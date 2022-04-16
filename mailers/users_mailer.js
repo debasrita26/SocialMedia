@@ -15,7 +15,7 @@ exports.resetPassword = (user) =>
         } ,
         (err , info) =>
         {
-        if(error){
+        if(err){
             console.log("Error in sending mail",err);
             return;
         }

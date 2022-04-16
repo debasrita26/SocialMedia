@@ -1,23 +1,49 @@
 const User = require('../models/user');
+const Post=require('../models/post');
 const fs=require('fs');
 const path=require('path');
 const crypto=require('crypto');
 const queue=require('../config/kue');
 const userEmailWorker = require('../workers/user_email_worker');
 
-module.exports.profile = function(req, res){
-    User.findById(req.params.id,function(err,user){
-        return res.render('user_profile', {
-            title: 'User Profile',
-            profile_user: user
-        });
-    })
+module.exports.profile = async function(req, res){
+    try{
+        let post=await Post.find({user: req.params.id})
+        .sort('-createdAt')
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user likes'
+            }
+        })
+        .populate('likes');
+        let user = await User.find({});
+        let signInUserFriends = await User.find({ friendship: req.params.id }).populate('friendship', 'name email avatar');
+        let signin_User = await User.findById(req.params.id);
     
+        return res.render('user_profile',{
+            title : "profile",
+            profile_user : signin_User,
+            posts : post,
+            all_users : user,
+            all_friends : signInUserFriends
+        });
+
+
+    }catch(err){
+        console.log('ERROR',err);
+        return;
+    }
+ 
+  
 }
 
 module.exports.update=async function(req,res){
+    //if the current user is  the one being edited
         if(req.user.id=req.params.id){
             try{
+                //find the user
                 let user=await User.findById(req.params.id);
                 User.uploadedAvatar(req,res,function(err){
                     if(err){ console.log('Multer Error',err)};
@@ -76,6 +102,16 @@ module.exports.signIn = function(req, res){
     return res.render('user_sign_in', {
         title: "Codeial | Sign In"
     })
+}
+
+module.exports.about = function(req, res){
+
+    if (req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+    return res.render('about', {
+        title: "Codeial | About"
+    }) 
 }
 
 // get the sign up data
