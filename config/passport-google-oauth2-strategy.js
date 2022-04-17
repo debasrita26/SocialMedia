@@ -6,7 +6,7 @@ const env=require('./environment');
  
 //tell passport  to use a new strategy for google login
 passport.use(new googleStrategy({
-        clientID: env.google_client_id || "590796045264-mafvqdof5vuk9tf4a7upaucvtm1ojdbi.apps.googleusercontent.com",
+        clientID: process.env.google_client_id,
         clientSecret: process.env.google_client_secret,
         callbackURL: process.env.google_callback_url
     },
