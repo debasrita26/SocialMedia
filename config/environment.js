@@ -40,26 +40,26 @@ const development={
 
 const production={
     name: 'production',
-    asset_path: process.env.ASSET_PATH,
-    session_cookie_key: process.env.SESSION_COOKIE_KEY , //YXhW0OlhLCHD3j2jFRRP0t1ZUoqffshf
-    db: process.env.DB,
-    smtp: {
+    asset_path: process.env.SOCIO_ASSET_PATH,
+    session_cookie_key: process.env.SOCIO_SESSION_COOKIE_KEY ,
+    db: process.env.SOCIO_DB,
+    smtp: { 
         service: 'gmail',
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
         auth:{
-            user: process.env.USER,
-            pass: process.env.PASSWORD
+            user: process.env.SOCIO_USER,
+            pass: process.env.SOCIO_PASSWORD
         },
         tls:{
             rejectUnauthorized: false
         }
     },
-    google_client_id: process.env.GOOGLE_CLIENT_ID,
-    google_client_secret: process.env.GOOGLE_CLIENT_SECRET,
-    google_callback_url: process.env.GOOGLE_CALLBACK_URL,
-    jwt_secret: process.env.JWT_SECRET,
+    google_client_id: process.env.SOCIO_GOOGLE_CLIENT_ID,
+    google_client_secret: process.env.SOCIO_GOOGLE_CLIENT_SECRET,
+    google_callback_url: process.env.SOCIO_GOOGLE_CALLBACK_URL,
+    jwt_secret: process.env.SOCIO_JWT_SECRET,
     morgan:{
         mode:'combined',
         options: {stream: accessLogStream}

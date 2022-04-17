@@ -4,7 +4,7 @@ const logger=require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express(); 
 require('./config/view-helpers')(app);         
-const port = process.env.port || 8111;
+const port = process.env.PORT || 8111;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require('express-session');
@@ -87,7 +87,7 @@ app.use(mware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));
-app.listen(process.env.port || 8111, function(err){
+app.listen(process.env.PORT|| 8111, function(err){
     if (err){
         console.log(`Error in running the server: ${err}`);
     }

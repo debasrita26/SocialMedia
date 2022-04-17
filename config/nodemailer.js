@@ -10,8 +10,8 @@ let transporter = nodemailer.createTransport({
         port: 587,
         secure: false,
         auth:{
-            user: process.env.USERNAME,
-            pass: process.env.PASSWORD
+            user: process.env.SOCIO_USER,
+            pass: process.env.SOCIO_PASSWORD
         },
         tls:{
             rejectUnauthorized: false
