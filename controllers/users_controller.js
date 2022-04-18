@@ -4,8 +4,6 @@ const fs=require('fs');
 const path=require('path');
 const crypto=require('crypto');
 // const queue=require('../config/kue');
-const userEmailWorker = require('../workers/user_email_worker');
-
 module.exports.profile = async function(req, res){
     try{
         let post=await Post.find({user: req.params.id})
