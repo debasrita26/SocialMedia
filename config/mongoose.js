@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const env=require('./environment');
 
-const url="mongodb+srv://debasrita:<password>@cluster0.88isc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const u="mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(url, {useNewUrlParser: true });
+mongoose.connect(u, {useNewUrlParser: true });
 
 const db = mongoose.connection;
 
