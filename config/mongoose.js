@@ -6,7 +6,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(`mongodb://localhost/${env.db}` , {useNewUrlParser: true });
+mongoose.connect(`mongodb://localhost/social_media_db` , {useNewUrlParser: true });
 
 const db = mongoose.connection;
 
