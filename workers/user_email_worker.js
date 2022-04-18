@@ -1,5 +1,3 @@
-const queue = require('../config/kue');
-
 const usersMailer = require('../mailers/users_mailer');
 
 queue.process('user-emails', function(job, done)

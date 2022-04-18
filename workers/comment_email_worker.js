@@ -1,4 +1,3 @@
-const queue=require('../config/kue');
 const commentmailer=require('../mailers/comments_mailer');
 
 
