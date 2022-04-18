@@ -7,7 +7,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(process.env.SOCIO_DB || url, {useNewUrlParser: true });
+mongoose.connect(url, {useNewUrlParser: true });
 
 const db = mongoose.connection;
 
