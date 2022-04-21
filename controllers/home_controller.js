@@ -31,7 +31,7 @@ module.exports.home = async function(req, res){
 
     //,function(err,users){
             return res.render('home', {
-                title: "Codeial | Home",
+                title: "Sociobuzz",
                 posts:  posts,
                 all_users: users
             });
