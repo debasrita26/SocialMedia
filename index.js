@@ -64,7 +64,7 @@ app.use(session({
     cookie: {              
         maxAge: (1000 * 60 * 100)
     },
-    store: MongoStore.create({mongoUrl: 'mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db'})
+    store: MongoStore.create({mongoUrl: process.env.SOCIO_DB})
     // store: new MongoStore(
     //     { 
     //         mongooseConnection: db,
