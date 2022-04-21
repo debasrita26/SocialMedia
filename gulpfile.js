@@ -3,7 +3,7 @@ const sass= require('gulp-sass')(require('sass'));
 const cssnano= require('gulp-cssnano');
 const rev=require('gulp-rev');
 const uglify = require('gulp-uglify-es').default;
-//const imagemin=require('gulp-imagemin');
+const imagemin= require('gulp-imagemin');
 const del = require('del');
 
 gulp.task('css', function(done){
@@ -13,13 +13,15 @@ gulp.task('css', function(done){
     .pipe(cssnano())
     .pipe(gulp.dest('/assets.css'));
 
-    return gulp.src('./assets/**/*.css')
+    gulp.src('./assets/**/*.css')
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
-    .pipe(rev.manifest({
-        cwd:'public',
+    .pipe(
+        rev.manifest({
+        base:'./public/assets',
         merge: true
-    }))
+    })
+    )
     .pipe(gulp.dest('./public/assets'));
     done();
 });
@@ -27,12 +29,13 @@ gulp.task('css', function(done){
 
 gulp.task('js', function(done){
      console.log('minifying js...');
-      gulp.src('./assets/**/*.js')
+      
+     gulp.src('./assets/**/*.js')
      .pipe(uglify())
      .pipe(rev())
      .pipe(gulp.dest('./public/assets'))
      .pipe(rev.manifest({
-         cwd: 'public',
+         base: './public/assets',
          merge: true
      }))
      .pipe(gulp.dest('./public/assets'));
@@ -47,7 +50,7 @@ gulp.task('js', function(done){
      .pipe(rev())
      .pipe(gulp.dest('./public/assets'))
      .pipe(rev.manifest({
-         cwd: 'public',
+         base: './public/assets',
          merge: true
      }))
      .pipe(gulp.dest('./public/assets'));
@@ -57,12 +60,16 @@ gulp.task('js', function(done){
 
 // empty the public/assets directory
  gulp.task('clean:assets', function(done){
-     del.sync('./public/assets');
+     del.sync('./public');
+     del.sync("./rev-manifest.json");
      done();
  });
 
- gulp.task('build', gulp.series('clean:assets', 'css', 'js', 'images'), function(done){
-     console.log('Building assets');
+ gulp.task('build', 
+    gulp.series('clean:assets', 'images', 'css', 'js'), 
+    function(done){
+    console.log('Building assets');
      done();
- });
+ }
+ );
  
