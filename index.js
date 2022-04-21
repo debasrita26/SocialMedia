@@ -40,7 +40,7 @@ app.use(express.static(env.asset_path));
 // app.use(express.static(__dirname + '/public'));
 //make the uploads path available for the server
 app.use('/uploads',express.static(__dirname + '/uploads'));
-app.use(logger(env.morgan));
+app.use(logger(process.env.morgan));
 app.use(expressLayouts);
   
 //app.use(logger(env.morgan.mode,env.morgan.options));
@@ -56,8 +56,7 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: //env.session_cookie_key
-    process.env.SESSION_COOKIE_KEY,
+    secret: process.env.SESSION_COOKIE_KEY,
     //env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
