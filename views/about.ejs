@@ -1,3 +1,23 @@
+<link rel="stylesheet" href="<%= assetPath('css/header.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/footer.css') %>">
+<body>
+        <%- include('_header'); %>
+
+        <!-- <% if(flash.success && flash.success.length > 0) { %> 
+            <h5> 
+                <%= flash.success %>
+            </h5>
+        <% } %> -->
+        <main id="layout-main">
+            <div">
+              <%- body %>
+            </div>
+        </main>
+
+
+        <%- include('_footer'); %>
+    </body>
+        
 <p style="color: blueviolet; background-color: lightcyan; height: 30%; width: 100%; text-align: center; ">
         Sociobuzz is a social media website 
         <br>
