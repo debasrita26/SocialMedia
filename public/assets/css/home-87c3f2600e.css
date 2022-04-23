@@ -1,0 +1,22 @@
+#home-container 
+{
+  display: flex; 
+  background-color: lightskyblue;
+}
+#home-container #user-nav 
+{
+  width: 20%;
+  padding: 10px;
+  border-right: 1px solid lightgrey; 
+}
+#home-container #feed-posts 
+{
+    width: 70%;
+    padding: 50px; 
+}
+#home-container #user-friends 
+{
+    width: 30%;
+    padding: 10px;
+    border-left: 1px solid lightgrey;
+}
