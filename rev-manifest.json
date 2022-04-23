@@ -9,5 +9,14 @@
   "css/main.css": "css/main-4ad8a68922.css",
   "css/sign_in.css": "css/sign_in-c7cfbc9ebe.css",
   "css/sign_up.css": "css/sign_up-524ed435db.css",
-  "css/user_profile.css": "css/user_profile-942013b190.css"
+  "css/user_profile.css": "css/user_profile-942013b190.css",
+  "images/img.png": "images/img-aaa9107af6.png",
+  "images/user_icon.png": "images/user_icon-23ec9dd5dc.png",
+  "images/wave1.png": "images/wave1-2c16171dbc.png",
+  "js/chat_engine.js": "js/chat_engine-6afe417273.js",
+  "js/chat_engine_new.js": "js/chat_engine_new-2698488527.js",
+  "js/home_comments.js": "js/home_comments-b598b16045.js",
+  "js/home_posts.js": "js/home_posts-40bdb18656.js",
+  "js/toggle_friend.js": "js/toggle_friend-89729c84c1.js",
+  "js/toggle_likes.js": "js/toggle_likes-0e3d81481c.js"
 }
