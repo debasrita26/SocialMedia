@@ -19,10 +19,3 @@ footer {
         justify-content: space-around;
         width: 22%; 
       }
-      footer #right
-      {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 22%; 
-      }
