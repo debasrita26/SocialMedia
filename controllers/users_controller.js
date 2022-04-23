@@ -86,7 +86,7 @@ module.exports.signUp = function(req, res){
 
 
     return res.render('user_sign_up', {
-        title: "Codeial | Sign Up"
+        title: "Sociobuzz Sign Up"
     })
 }
 
@@ -98,7 +98,7 @@ module.exports.signIn = function(req, res){
         return res.redirect('/users/profile');
     }
     return res.render('user_sign_in', {
-        title: "Codeial | Sign In"
+        title: "Sociobuzz Sign In"
     })
 }
 
@@ -108,7 +108,7 @@ module.exports.about = function(req, res){
         return res.redirect('/users/profile');
     }
     return res.render('about', {
-        title: "Codeial | About"
+        title: "Sociobuzz About"
     }) 
 }
 
@@ -154,7 +154,7 @@ module.exports.resetPassword = function(req, res)
 {
     return res.render('reset_password',
     {
-        title: 'Codeial | Reset Password',
+        title: 'Sociobuzz Reset Password',
         access: false
     });
 }
@@ -211,7 +211,7 @@ module.exports.setPassword = function(req, res)
         {
             return res.render('reset_password',
             {
-                title: 'Codeial | Reset Password',
+                title: 'Sociobuzz Reset Password',
                 access: true,
                 accessToken: req.params.accessToken
             });
