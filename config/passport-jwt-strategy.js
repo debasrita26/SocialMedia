@@ -6,7 +6,7 @@ const env=require('./environment');
 
 let opts={
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET || "C5uPaSEp9KAbYdkfD5bI9DYFxupzwFiT"
+    secretOrKey: env.jwt_secret || "C5uPaSEp9KAbYdkfD5bI9DYFxupzwFiT"
 }
 
 passport.use(new JWTStrategy(opts, function(jwtPayload,done){
