@@ -12,8 +12,17 @@ footer {
         color: white;
         text-decoration: none;
         display: block; }
-      footer #left {
+      footer #left
+      {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 22%; }
+        width: 22%; 
+      }
+      footer #right
+      {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 22%; 
+      }
