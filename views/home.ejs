@@ -108,9 +108,9 @@
             <p>
                 <a href="/users/profile/<%= u.id %>">
                 <%if(u.avatar){%>
-                <img src="<%= u.avatar %>" alt="<%= u.name %>" width="30" height="30">
+                <img src="<%= u.avatar %>" alt="<%= u.name %>" width="30" height="30"><strong><%= u.name %></strong>
                 <%}else{%>
-                    <img src="<%= assetPath('images/user_icon.png') %>" alt="image">
+                    <img src="<%= assetPath('images/user_icon.png') %>" alt="image"><strong><%= u.name %></strong>
                 <%}%>
                 </a>
             </p>
