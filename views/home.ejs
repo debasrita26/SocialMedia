@@ -104,6 +104,18 @@
     </section>
     <section id="user-friends">
         <h2> Friends </h2>
+        <%for(u of all_users){%>
+            <p>
+                <a href="/users/profile/<%= u.id %>">
+                <%if(u.avatar){%>
+                <img src="<%= u.avatar %>" alt="<%= u.name %>" width="30" height="30">
+                <%}else{%>
+                    <img src="<%= assetPath('images/user_icon.png') %>" alt="image">
+                <%}%>
+                </a>
+            </p>
+        <%}%>
+        <!--
         <% for(u of all_users) {%>
             <p>
                 <a href="/users/profile/<%= u.id %>"> 
@@ -111,6 +123,7 @@
                 <strong><%= u.name %></strong></a>
             </p>
         <%}%>
+        -->
     </section>
 
 </div>
