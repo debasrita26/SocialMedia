@@ -14,16 +14,30 @@ module.exports.create = async function(req, res){
                 user: req.user._id
             });
 
-            post.comments.push(comment);
+            post.comments.unshift(comment);
             post.save();
-            req.flash('success', 'Comment published!');
-            res.redirect('/');
+            comment = await Comment.findById(comment._id).populate('user','name email avatar');
+            //commentsMailer.newComment(comment);
+
+            if(req.xhr){
+                
+               
+                return res.status(200).json({
+                    data : {
+                        comment : comment
+                    },
+                    message : 'Comment created'
+                });
             }
+            
+            req.flash('success','Comment Created');
+            return res.redirect('/');
         }
-        catch(err){
-            req.flash('error',err);
-            return;
-        }
+    }catch(err){
+        req.flash('error',err);
+        return res.redirect('/');
+    }
+   
 }
 
 module.exports.destroy=async function(req,res){
@@ -34,7 +48,7 @@ module.exports.destroy=async function(req,res){
 
             comment.remove();
 
-            let post= Post.findByIdAndUpdate(postId, { $pull :{comments: req.params.id}});
+            await post= Post.findByIdAndUpdate(postId, { $pull :{comments: req.params.id}});
             
             await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
 
@@ -44,7 +58,7 @@ module.exports.destroy=async function(req,res){
                     data: {
                         comment_id: req.params.id
                     },
-                    message:"Post deleted"
+                    message:"Comment deleted"
                 });
             }
                 req.flash('success', 'Comment deleted!');

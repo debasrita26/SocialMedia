@@ -11,12 +11,9 @@ module.exports.home = async function(req, res){
     .populate({
         path: 'comments',
         populate: {
-            path: 'user'
-        },
-        populate: {
-            path: 'likes'
+            path: 'user likes'
         }
-    }).populate('comments')
+    })
     .populate('likes');
     
     //.exec(function(err, posts){
@@ -31,9 +28,10 @@ module.exports.home = async function(req, res){
 
     //,function(err,users){
             return res.render('home', {
-                title: "Sociobuzz",
+                title: "Sociobuzz home",
                 posts:  posts,
-                all_users: users
+                all_users: users,
+                all_freinds: signInUserFriends
             });
 }catch(err){
     console.log('err');

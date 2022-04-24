@@ -6,9 +6,9 @@ let currentChatRoom;
 let roomList = [];
 
 var socket = io.connect('http://localhost:5432',{
-  'reconnection': true,
-  'reconnectionDelay': 500,
-  'reconnectionAttempts': 10,
+  // 'reconnection': true,
+  // 'reconnectionDelay': 500,
+  // 'reconnectionAttempts': 10,
   'transports':['websocket']
 });
 socket.on("connect", function () {

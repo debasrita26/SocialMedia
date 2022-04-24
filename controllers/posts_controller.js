@@ -1,6 +1,8 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 const Like=require('../models/like');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.create =async function(req, res){
     try{
@@ -9,9 +11,10 @@ module.exports.create =async function(req, res){
         user: req.user._id
     });
 
-    if(req.xhr){
-        post = await post.populate('user', 'name').execPopulate();
 
+    console.log(post);
+    if(req.xhr){
+        post = await Post.findById(post._id).populate('user');
         return res.status(200).json({
             data: {
                 post: Post
