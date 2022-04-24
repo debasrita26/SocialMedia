@@ -1,9 +1,7 @@
 const User = require('../models/user');
 const Post=require('../models/post');
 const fs=require('fs');
-const path=require('path');
-const crypto=require('crypto');
-// const queue=require('../config/kue');
+
 module.exports.profile = async function(req, res){
     try{
         let post=await Post.find({user: req.params.id})
@@ -39,8 +37,8 @@ module.exports.profile = async function(req, res){
 
 module.exports.update=async function(req,res){
     //if the current user is  the one being edited
+    try{
         if(req.user.id=req.params.id){
-            try{
                 //find the user
                 let user=await User.findById(req.params.id);
                 User.uploadedAvatar(req,res,function(err){
@@ -54,16 +52,18 @@ module.exports.update=async function(req,res){
                             user.avatar=User.avatarPath+'/'+req.file.filename;
                         }
                         user.save();
+                        req.flash('success','Profile Pic uploaded');
                         return res.redirect('back');
                 });
-            }catch(err){
-                req.flash('error',err);
+            }
+            else{
+                req.flash('error',unauthorized);
                 return res.redirect('back');
             }
 
-        }else{
-            req.flash('error', 'Unauthorized');
-            res.status(401).send('Unauthorized');
+        }catch(err){
+            req.flash('error',err);
+            return res.redirect('back');
         }
     }
 //     if(req.user.id=req.params.id){
