@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Post=require('../models/post');
 const fs=require('fs');
+const path=require('path');
 
 module.exports.profile = async function(req, res){
     try{
