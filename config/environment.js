@@ -28,12 +28,12 @@ const development={
             rejectUnauthorized: false
         }
     },
-    google_client_id: process.env.GOOGLE_CLIENT_ID,
-    google_client_secret: process.env.GOOGLE_CLIENT_SECRET,
-    google_call_back_url: process.env.GOOGLE_CALLBACK_URL,
-    jwt_secret: process.env.JWT_SECRET,
+    google_client_id: "590796045264-mafvqdof5vuk9tf4a7upaucvtm1ojdbi.apps.googleusercontent.com",
+    google_client_secret: "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",
+    google_call_back_url: "http://localhost:8111/users/auth/google/callback",
+    jwt_secret: "C5uPaSEp9KAbYdkfD5bI9DYFxupzwFiT",
     morgan:{
-        mode:'dev',
+        mode:'dev', 
         options: {stream: accessLogStream}
     }
 }
@@ -58,7 +58,7 @@ const production={
     },
     google_client_id: process.env.SOCIO_GOOGLE_CLIENT_ID,
     google_client_secret: process.env.SOCIO_GOOGLE_CLIENT_SECRET,
-    google_callback_url: process.env.SOCIO_GOOGLE_CALLBACK_URL,
+    google_call_back_url: "http://sociobuzz.herokuapp.com/users/auth/google/callback",
     jwt_secret: process.env.SOCIO_JWT_SECRET,
     morgan:{
         mode:'combined',

@@ -34,7 +34,7 @@ gulp.task('css', function(done){
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({
-           cwd: 'public',
+           cwd:"public",
            merge: true
        }))
        .pipe(gulp.dest('./public/assets'));

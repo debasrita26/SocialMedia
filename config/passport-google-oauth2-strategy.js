@@ -6,9 +6,9 @@ const env=require('./environment');
  
 //tell passport  to use a new strategy for google login
 passport.use(new googleStrategy({
-        clientID: process.env.SOCIO_GOOGLE_CLIENT_ID,
-        clientSecret: process.env.SOCIO_GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.SOCIO_GOOGLE_CALLBACK_URL
+        clientID: "590796045264-mafvqdof5vuk9tf4a7upaucvtm1ojdbi.apps.googleusercontent.com",
+        clientSecret: "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",
+        callbackURL: "http://sociobuzz.herokuapp.com/users/auth/google/callback"
     },
 
     function(accessToken, refreshToken, profile, done){
