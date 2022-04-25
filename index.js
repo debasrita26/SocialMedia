@@ -60,8 +60,7 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: "YXhW0OlhLCHD3j2jFRRP0t1ZUoqffshf",
-    //env.session_cookie_key,
+    secret: process.env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {              
