@@ -16,7 +16,7 @@ const PassportGoogle=require('./config/passport-google-oauth2-strategy');
 
 
 const db = require('./config/mongoose');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 const expressLayouts = require('express-ejs-layouts');
 
 const sassMiddleware =require('node-sass-middleware'); 
