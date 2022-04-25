@@ -1,11 +1,11 @@
 <footer>
     <div id="flex-footer">
         <div class="bottom-text">
-            <p>© Sociobuzz. All Rights Reserved</p>
+            <a href="/">Sociobuzz</a>
         </div>
         <%if(locals.user) { %>
         <div class="bottom-text">
-            <a href="/users/profile/<%= user.id %>">Profile</a>
+            <a href="/users/profile/<%=locals.user.id %>">Profile</a>
         </div>
         <% }  %>
     </div>  
