@@ -17,7 +17,7 @@ const PassportGoogle=require('./config/passport-google-oauth2-strategy');
 
 const db = require('./config/mongoose');
 const MongoStore = require('connect-mongo')(session);
-const expressLayouts = require('express-ejs-layouts');
+const expressLayouts = require('express-ejs-layouts'); 
 
 const sassMiddleware =require('node-sass-middleware'); 
 const flash=require('connect-flash');
@@ -34,7 +34,7 @@ app.use(sassMiddleware({
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
-  }));     
+  }));      
 }            
     
 app.use(express.urlencoded({ extended: false }));
@@ -44,7 +44,7 @@ app.use(express.static('./public/assets'));
 // app.use(express.static(__dirname + '/public'));
 //make the uploads path available for the server
 app.use('/uploads',express.static(__dirname + '/uploads'));
-app.use(logger(env.morgan));
+app.use(logger(env.morgan.mode,env.morgan.options));
 app.use(expressLayouts);
   
 //app.use(logger(env.morgan.mode,env.morgan.options));
@@ -67,18 +67,18 @@ app.use(session({
     cookie: {              
         maxAge: (1000 * 60 * 100)
     },
-    store: MongoStore.create({mongoUrl:"mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"})
+    ///store: MongoStore.create({mongoUrl:"mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"})
 
-    //  store: new MongoStore(
-    //      { 
-    //          mongooseConnection: db,
-    //          autoRemove: 'disabled'
+     store: new MongoStore(
+         { 
+             mongooseConnection: db,
+             autoRemove: 'disabled'
          
-    //      },
-    //      function(err){
-    //          console.log(err ||  'connect-mongodb setup ok');
-    //      }
-    // )
+         }, 
+         function(err){
+             console.log(err ||  'connect-mongodb setup ok');
+         }
+    )
 }));
   
 app.use(passport.initialize());
