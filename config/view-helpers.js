@@ -13,7 +13,7 @@ module.exports= (app)=>{
         }
         //we need to change the filePath only if it is production 
         //parsing the JSON file so we are reading that file from path.join....
-        console.log( JSON.parse(fs.readFileSync(path.join(__dirname , "../public/assets/rev-manifest.json/")))[filePath])
+        console.log( JSON.parse(fs.readFileSync(path.join(__dirname , "../public/assets/rev-manifest.json")))[filePath])
 
         return '/' + JSON.parse(fs.readFileSync(path.join(__dirname,'../public/assets/rev-manifest.json')))[filePath];
     }
