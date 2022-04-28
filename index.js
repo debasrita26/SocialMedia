@@ -63,12 +63,9 @@ app.use(session({
     secret: "YXhW0OlhLCHD3j2jFRRP0t1ZUoqffshf",
     saveUninitialized: false,
     resave: false,
-    cookie: {              
-        maxAge: (1000 * 60 * 100)
-    },
+    cookie: { maxAge: (1000 * 60 * 100) },
     // store: MongoStore.create({mongoUrl:"mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"})
-
-     store: new MongoStore(
+    store: new MongoStore(
          { 
              mongooseConnection: db,
              autoRemove: 'disabled'
