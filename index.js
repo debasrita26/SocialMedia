@@ -44,7 +44,7 @@ app.use(express.static('./public/assets'));
 // app.use(express.static(__dirname + '/public'));
 //make the uploads path available for the server
 app.use('/uploads',express.static(__dirname + '/uploads'));
-app.use(logger(env.morgan.mode,env.morgan.optionns));
+app.use(logger(env.morgan.mode,env.morgan.options));
 app.use(expressLayouts);
   
 //app.use(logger(env.morgan.mode,env.morgan.options));

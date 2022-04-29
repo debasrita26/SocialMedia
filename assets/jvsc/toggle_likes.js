@@ -6,7 +6,7 @@ class ToggleLike{
     }
 
 
-    toggleLike(){
+    ToggleLike(){
         $(this.toggler).click(function(e){
             e.preventDefault();
             let self = this;
