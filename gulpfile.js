@@ -3,7 +3,7 @@ const sass= require('gulp-sass')(require('sass'));
 const cssnano= require('gulp-cssnano');
 const rev=require('gulp-rev');
 const uglify = require('gulp-uglify-es').default;
-const imagemin= require('gulp-imagemin');
+//const imagemin= require('gulp-imagemin');
 const del = require('del');
 
 gulp.task('css', function(done){
@@ -45,7 +45,7 @@ gulp.task('css', function(done){
    gulp.task('images', function(done){
        console.log('compressing images...');
       gulp.src('./assets/**/*.+(png|jpg|gif|jfif|svg|jpeg)')
-       .pipe(imagemin())
+       //.pipe(imagemin())
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({

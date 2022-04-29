@@ -103,18 +103,6 @@
     </section>
     <section id="user-friends">
         <h2> Friends </h2>
-        <!-- <%for(u of all_users){%> 
-            <p>
-                <a href="/users/profile/<%= u.id %>">
-                <%if(u.avatar){%>
-                <img src="<%= u.avatar %>" alt="<%= u.name %>" width="30" height="30"><strong><%= u.name %></strong>
-                <%}else{%>
-                    <img src="<%= assetPath('images/user_icon.png') %>" alt="image"><strong><%= u.name %></strong>
-                <%}%>
-                </a>
-            </p>
-        <%}%>
-        -->
         <% for(u of all_users) {%>
             <p>
                 <a href="/users/profile/<%= u.id %>"> 
@@ -125,6 +113,7 @@
     </section>
 
 </div>
+<% } %> 
 <script src="<%= assetPath('jvsc/home_comments.js') %>"></script>
 <script src="<%= assetPath('jvsc/home_posts.js') %>"></script>
 
@@ -140,5 +129,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
 <script src="<%= assetPath('jvsc/chat_engine_new.js') %>"></script>
 
-<% } %> 
+
 
