@@ -29,7 +29,7 @@ class ToggleLike{
 
                 $(self).attr('data-likes', likesCount);
                 if(data.data.deleted==false){
-                $(self).html(`${likesCount} Likes`); 
+                $(self).html(`${likesCount} Likes`);
                 }
                 else{
                 $(self).html(`${likesCount} Likes`);

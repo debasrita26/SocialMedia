@@ -5,12 +5,7 @@ let otherUser;
 let currentChatRoom;
 let roomList = [];
 
-var socket = io.connect('http://localhost:5432',{
-  // 'reconnection': true,
-  // 'reconnectionDelay': 500,
-  // 'reconnectionAttempts': 10,
-  'transports':['websocket']
-});
+var socket = io.connect('https://sociobuzz.herokuapp.com');
 socket.on("connect", function () {
   console.log("connection established using sockets...!");
 });

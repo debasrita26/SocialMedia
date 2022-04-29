@@ -17,7 +17,7 @@ gulp.task('css', function(done){
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
     .pipe(rev.manifest({
-        cwd:'public',
+        base:'./public/assets',
         merge: true
     })
     )
@@ -34,7 +34,7 @@ gulp.task('css', function(done){
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({
-           cwd:"public",
+            base:'./public/assets',
            merge: true
        }))
        .pipe(gulp.dest('./public/assets'));
@@ -49,8 +49,8 @@ gulp.task('css', function(done){
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({
-           cwd: 'public',
-           merge: true
+        base:'./public/assets',
+        merge: true
        }))
        .pipe(gulp.dest('./public/assets'));
         done();
@@ -66,6 +66,7 @@ gulp.task('css', function(done){
    gulp.task('build', 
       gulp.series('clean:assets', 'css', 'js', 'images'), 
       function(done){
+     console.log("printing assets");
       done();
    }
    );
