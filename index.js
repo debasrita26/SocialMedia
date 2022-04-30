@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express(); 
-const port = process.env.PORT || 8111;
+const port = 8111;
 const env=require('./config/environment');
 const logger=require('morgan'); 
+const chatPort=process.env.PORT || 2019;
 
 require('./config/view-helpers')(app);   
 const path=require('path'); 
@@ -26,7 +27,7 @@ const mware=require('./config/middleware');
 //chat server
 const chatServer=require('http').Server(app); 
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(2019);
+chatServer.listen(chatPort);
 console.log('chat server is listening on port 5432'); 
   
 if(env.name=='development'){
