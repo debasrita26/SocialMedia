@@ -5,7 +5,7 @@ let otherUser;
 let currentChatRoom;
 let roomList = [];
 
-var socket = io.connect('https://sociobuzz.herokuapp.com:2019', { transports: ['websocket'] });
+var socket = io.connect('https://sociobuzz.herokuapp.com', { transports: ['websocket'] });
 socket.on("connect", function () {
   console.log("connection established using sockets...!");
 });
