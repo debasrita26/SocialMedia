@@ -28,7 +28,7 @@ const mware=require('./config/middleware');
 const chatServer=require('http').Server(app); 
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(chatPort);
-console.log('chat server is listening on port 5432'); 
+console.log(`chat server is listening ${chatPort}`); 
   
 if(env.name=='development'){
 app.use(sassMiddleware({     
