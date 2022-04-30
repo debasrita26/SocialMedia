@@ -1,5 +1,13 @@
 #home-container {
-  display: flex; }
+  display: flex; 
+  background-color: lightskyblue;
+}
+#home-container #user-nav 
+{
+  width: 20%;
+  padding: 10px;
+  border-right: 1px solid lightgrey; 
+}
   #home-container #feed-posts {
     width: 70%;
     padding: 10px; }
@@ -7,4 +15,5 @@
     width: 30%;
     padding: 10px;
     border-left: 1px solid lightgrey;
-    height: 100%; }
+    height: 100%; 
+  }
