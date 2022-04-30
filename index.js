@@ -22,7 +22,7 @@ const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware =require('node-sass-middleware'); 
 const flash=require('connect-flash');
 const mware=require('./config/middleware');
-
+ 
 const chatServer=require('http').Server(app); 
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(2019);
