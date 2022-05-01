@@ -91,7 +91,7 @@ app.use(mware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));
-app.listen(process.env.PORT|| 8111, function(err){
+app.listen(port, function(err){
     if (err){
         console.log(`Error in running the server: ${err}`);
     }
