@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express(); 
-const port = 4000;
+const port = process.env.PORT || 8111;
 const env=require('./config/environment');
 const logger=require('morgan'); 
-const chatPort=process.env.PORT || 2019;
  
 require('./config/view-helpers')(app);   
 const path=require('path'); 
@@ -25,10 +24,10 @@ const flash=require('connect-flash');
 const mware=require('./config/middleware');
 
 //chat server
-const chatServer=require('http').Server(app); 
+const chatServer=require("http").Server(app); 
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(chatPort);
-console.log(`chat server is listening ${chatPort}`); 
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000'); 
   
 if(env.name=='development'){
 app.use(sassMiddleware({     
