@@ -17,7 +17,7 @@ gulp.task('css', function(done){
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
     .pipe(rev.manifest({
-        cwd:'./public/assets',
+        base:'./public/assets',
         merge: true
     })
     )
@@ -34,7 +34,7 @@ gulp.task('css', function(done){
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({
-           cwd:"./public/assets",
+           base:"./public/assets",
            merge: true
        }))
        .pipe(gulp.dest('./public/assets'));
@@ -49,7 +49,7 @@ gulp.task('css', function(done){
        .pipe(rev())
        .pipe(gulp.dest('./public/assets'))
        .pipe(rev.manifest({
-           cwd: './public/assets',
+           base: './public/assets',
            merge: true
        }))
        .pipe(gulp.dest('./public/assets'));
