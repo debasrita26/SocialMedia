@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express(); 
-const port = process.env.PORT || 8111;
+const port = 8222;
 const env=require('./config/environment');
 const logger=require('morgan');
 
 require('./config/view-helpers')(app);   
-const path=require('path'); 
+const path=require('path');  
 
 const cookieParser = require('cookie-parser');  
 const session = require('express-session');
@@ -90,7 +90,7 @@ app.use(mware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));
-app.listen(process.env.PORT|| 8111, function(err){
+app.listen(port, function(err){
     if (err){
         console.log(`Error in running the server: ${err}`);
     }

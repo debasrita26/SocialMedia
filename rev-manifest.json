@@ -1,11 +1,13 @@
 {
-  "images/img.png": "images/img-273b5091ea.png",
-  "images/user_icon.png": "images/user_icon-27783beb6f.png",
-  "images/wave1.png": "images/wave1-ae3b469bb7.png",
-  "js/chat_engine.js": "js/chat_engine-6afe417273.js",
-  "js/chat_engine_new.js": "js/chat_engine_new-2698488527.js",
-  "js/home_comments.js": "js/home_comments-b598b16045.js",
-  "js/home_posts.js": "js/home_posts-40bdb18656.js",
-  "js/toggle_friend.js": "js/toggle_friend-89729c84c1.js",
-  "js/toggle_likes.js": "js/toggle_likes-0e3d81481c.js"
+  "css/chat_box.css": "css/chat_box-77c4f22822.css",
+  "css/chats.css": "css/chats-e9b47aadcb.css",
+  "css/comment.css": "css/comment-787c944035.css",
+  "css/footer.css": "css/footer-9c0a9a1e6a.css",
+  "css/header.css": "css/header-921658a263.css",
+  "css/home.css": "css/home-dcbaa58ed4.css",
+  "css/layout.css": "css/layout-fbb60366e7.css",
+  "css/main.css": "css/main-4ad8a68922.css",
+  "css/sign_in.css": "css/sign_in-c7cfbc9ebe.css",
+  "css/sign_up.css": "css/sign_up-524ed435db.css",
+  "css/user_profile.css": "css/user_profile-942013b190.css"
 }
