@@ -5,7 +5,7 @@ class ToggleLike{
         this.toggleLike();
     }
 
-
+   
     toggleLike(){
         $(this.toggler).click(function(e){
             e.preventDefault();
@@ -25,11 +25,16 @@ class ToggleLike{
                 }else{
                     likesCount += 1;
                 }
-
+  
 
                 $(self).attr('data-likes', likesCount);
+                if(data.data.deleted==false){
                 $(self).html(`${likesCount} Likes`);
-
+                }
+                else{
+                $(self).html(`${likesCount} Likes`);
+                }
+ 
             })
             .fail(function(errData) {
                 console.log('error in completing the request');

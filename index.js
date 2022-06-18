@@ -2,8 +2,8 @@ const express = require('express');
 const app = express(); 
 const port = 8222;
 const env=require('./config/environment');
-const logger=require('morgan');
-
+const logger=require('morgan'); 
+ 
 require('./config/view-helpers')(app);   
 const path=require('path');  
 
@@ -22,10 +22,12 @@ const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware =require('node-sass-middleware'); 
 const flash=require('connect-flash');
 const mware=require('./config/middleware');
-const chatServer=require('http').Server(app); 
+
+//chat server
+const chatServer=require("http").Server(app); 
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(5432);
-console.log('chat server is listening on port 5432'); 
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000'); 
   
 if(env.name=='development'){
 app.use(sassMiddleware({     
@@ -61,20 +63,32 @@ app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
     secret: "YXhW0OlhLCHD3j2jFRRP0t1ZUoqffshf",
+<<<<<<< HEAD
     //env.session_cookie_key,
+=======
+>>>>>>> 251b4c0e1a63e454d25490f5fd9e9b0ee59c6d2d
     saveUninitialized: false,
     resave: false,
-    cookie: {              
-        maxAge: (1000 * 60 * 100)
+    cookie: { 
+        maxAge: (1000 * 60 * 100) 
     },
+<<<<<<< HEAD
     ///store: MongoStore.create({mongoUrl:"mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"})
 
      store: new MongoStore(
+=======
+    // store: MongoStore.create({mongoUrl:"mongodb+srv://debasrita:Mongodb12345@cluster0.88isc.mongodb.net/socialmedia_db"})
+    store: new MongoStore(
+>>>>>>> 251b4c0e1a63e454d25490f5fd9e9b0ee59c6d2d
          { 
              mongooseConnection: db,
              autoRemove: 'disabled'
          
+<<<<<<< HEAD
          }, 
+=======
+         },
+>>>>>>> 251b4c0e1a63e454d25490f5fd9e9b0ee59c6d2d
          function(err){
              console.log(err ||  'connect-mongodb setup ok');
          }

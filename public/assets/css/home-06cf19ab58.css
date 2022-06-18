@@ -1,5 +1,4 @@
-#home-container 
-{
+#home-container {
   display: flex; 
   background-color: rgb(226, 240, 248);
 }
@@ -9,14 +8,12 @@
   padding: 10px;
   border-right: 1px solid grey; 
 }
-#home-container #feed-posts 
-{
+  #home-container #feed-posts {
     width: 70%;
-    padding: 50px; 
-}
-#home-container #user-friends 
-{
+    padding: 10px; }
+  #home-container #user-friends {
     width: 30%;
     padding: 10px;
     border-left: 1px solid lightgrey;
-}
+    height: 100%; 
+  }
