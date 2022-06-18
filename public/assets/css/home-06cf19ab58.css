@@ -1,13 +1,13 @@
 #home-container 
 {
   display: flex; 
-  background-color: lightskyblue;
+  background-color: rgb(226, 240, 248);
 }
 #home-container #user-nav 
 {
   width: 20%;
   padding: 10px;
-  border-right: 1px solid lightgrey; 
+  border-right: 1px solid grey; 
 }
 #home-container #feed-posts 
 {

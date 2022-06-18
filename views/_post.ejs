@@ -1,62 +1,67 @@
+<link rel="stylesheet" href="<%= assetPath('css/post.css') %>">
+
 <li style="list-style: none;" id="post-<%= post.id %>">
                 <p>
                     <div class="bg-light">
                         <div class="d-flex flex-row fs-12">
                             <div class="like p-2 cursor">
-                    <div class="mt-2">
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><h3><%= post.user.name %></h3></span></div>
-                        </div>
-                        </div>
+                                <div class="mt-2">
+                                    <div class="d-flex flex-column justify-content-start ml-2">
+                                        <span class="d-block font-weight-bold name"><h3><%= post.user.name %></h3></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
-                    <div class="d-flex flex-row user-info ml-2"><%= post.content%></div>
-                    <div>
-                <div class="bg-light">
-                    <div class="d-flex flex-row fs-12">
-                        <div class="like p-2 cursor">
-                        <% if (locals.user && locals.user_id == post.user_id){ %>
-                                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="ml-1"></span>
-                                </a>
-                        <% } %>
-                        </div>
-                        <small>
-                        <div class="like p-2 cursor">
-                        <% if (locals.user){ %>
-                            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
-                                    <%= post.likes.length %><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="ml-1"></span>
+                        <div class="d-flex flex-row user-info ml-2" id="post-content"><%= post.content%></div>
+                            <div class="bg-light">
+                                <div class="d-flex flex-row fs-12" id="post-actions">
+                                    <div class="like p-2 cursor" id="post-delete">
+                                            <% if (locals.user && locals.user_id == post.user_id){ %>
+                                                    <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="ml-1"></span>
+                                                    </a>
+                                            <% } %>
+                                    </div>
+                                    <small>
+                                        <div class="like p-2 cursor" id="post-like">
+                                            <% if (locals.user){ %>
+                                                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                                                        <%= post.likes.length %><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="ml-1"></span>
 
-                            </a>
-                        <% }else{ %>
-                            <%= post.likes.length %> Likes
-                        <% } %>
+                                                </a>
+                                            <% }else{ %>
+                                                <%= post.likes.length %> Likes
+                                            <% } %>
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            </p>
+                                <!-- <div class="post-comments"> -->
+                                <div class="like p-2 cursor">
+
+                                <% if (locals.user){ %>
+                                    <div class="bg-info p-2">
+                                    <form id="post-<%= post._id %>-comment-form" action="/comments/create" method="POST">
+                                        <div class="d-flex flex-row align-items-start"><input type="text" class="form-control ml-1 shadow-none textarea" name="content" placeholder="Add comment here..." required></div>
+                                        <input type="hidden" name="post" value="<%= post._id %>" >
+                                        <div class="mt-2 text-right pull-right"><button class="btn btn-primary btn-sm shadow-none" type="submit"><i class="fa fa-comment-o fa-fw"></i>Post Comment</button></div>
+                                    </form>
+                                    <span class="ml-5"></span>
+                                    
+                                <% } %>
+                                <br>
+                                <div class="post-comments-list">
+                                    <ul id="post-comments-<%= post._id %>">
+                                        <% for (comment of post.comments){%>
+                                            <%- include('_comment') -%>
+
+                                        <%} %>
+                                    </ul>
+                                </div>
+                            </p>
                         </div>
                     </div>
-                </div>
-                        </small>
-                            </p>
-                        <!-- <div class="post-comments"> -->
-                            <div class="like p-2 cursor">
-
-                            <% if (locals.user){ %>
-                                <div class="bg-info p-2">
-                                <form id="post-<%= post._id %>-comment-form" action="/comments/create" method="POST">
-                                    <div class="d-flex flex-row align-items-start"><input type="text" class="form-control ml-1 shadow-none textarea" name="content" placeholder="Add comment here..." required></div>
-                                    <input type="hidden" name="post" value="<%= post._id %>" >
-                                    <div class="mt-2 text-right pull-right"><button class="btn btn-primary btn-sm shadow-none" type="submit"><i class="fa fa-comment-o fa-fw"></i>Post Comment</button></div>
-                                </form>
-                                <span class="ml-5"></span>
-                                
-                            <% } %>
-                            <br>
-                            <div class="post-comments-list">
-                                <ul id="post-comments-<%= post._id %>">
-                                    <% for (comment of post.comments){%>
-                                        <%- include('_comment') -%>
-
-                                    <%} %>
-                                </ul>
-                            </div>
-                       
-            </p>
+                </p>
 </li>
               

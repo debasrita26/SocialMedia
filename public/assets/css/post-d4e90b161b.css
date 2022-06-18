@@ -1,0 +1,37 @@
+#post-content{
+    font-size: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: black;
+    margin-top: 15px;
+    word-break: break-all;
+}
+
+#post-actions {
+    padding: 5px;
+    display: flex;
+    border: 1px solid grey;
+    padding: 5px 10px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: grey;
+    border-right: none;
+    border-left: none;
+  }
+
+#post-actions a {
+    height: 18px;
+  }
+
+#post-delete{
+    display: flex;
+    align-items: center;
+}
+
+#post-like {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+  }

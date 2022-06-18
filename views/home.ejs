@@ -62,7 +62,7 @@
 <% if(locals.user) { %>
 <div id="home-container">
     <section id="user-nav">
-        <h2>User</h2>
+        <h2 style="font-family: sans serif;">USER</h2>
         <% if(locals.user) { %>
             <% if(user.avatar) { %>
                 <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
@@ -73,7 +73,7 @@
         <% } %>
     </section>
     <section id="feed-posts">
-        <h2>Posts</h2>
+        <h2 style="font-family: sans serif;">POSTS</h2>
         <div class="container mt-3">
             <div class="d-flex justify-content-cernter row">
                 <div class="col-md-10">
@@ -103,7 +103,7 @@
                </div>      
     </section>  
     <section id="user-friends">
-        <h2> Friends </h2>
+        <h2 style="font-family: sans serif;"> FRIENDS </h2>
         <!-- <%for(u of all_users){%> 
             <p>
                 <a href="/users/profile/<%= u.id %>">

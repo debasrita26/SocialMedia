@@ -17,7 +17,7 @@ const PassportGoogle=require('./config/passport-google-oauth2-strategy');
 
 const db = require('./config/mongoose');
 const MongoStore = require('connect-mongo')(session);
-const expressLayouts = require('express-ejs-layouts'); 
+const expressLayouts = require('express-ejs-layouts');  
 
 const sassMiddleware =require('node-sass-middleware'); 
 const flash=require('connect-flash');
@@ -29,7 +29,7 @@ console.log('chat server is listening on port 5432');
   
 if(env.name=='development'){
 app.use(sassMiddleware({     
-    src: path.join(__dirname,env.asset_path,'scss'),
+    src: path.join(__dirname,env.asset_path,'scss'),  
     dest: path.join(__dirname,env.asset_path,'css'),
     debug: true,
     outputStyle: 'extended',
@@ -93,7 +93,7 @@ app.use('/', require('./routes'));
 app.listen(port, function(err){
     if (err){
         console.log(`Error in running the server: ${err}`);
-    }
+    } 
 
     console.log(`Server is running on port: ${port}`);
 });
