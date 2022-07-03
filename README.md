@@ -13,7 +13,7 @@ A Social Media website
 
 ### To start the server
 
-$ npm start
+`npm start`
 
 ### Deployment
 Sociobuzz in deployed on https://sociobuzz.herokuapp.com/
