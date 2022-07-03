@@ -1,5 +1,5 @@
 # SocialMedia
-A Social Media website
+A Social Media Web Application
 
 ### Technologies used
 
